@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Editar Perfil</h2>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.username(class="form-control mb-2") }}
+    {{ form.email(class="form-control mb-2") }}
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

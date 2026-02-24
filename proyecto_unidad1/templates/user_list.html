@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Feed</h2>
+
+<form method="POST">
+    <div class="card mb-4 bg-dark border-secondary">
+    <div class="card-body">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="mb-2">
+                {{ form.content(class="form-control bg-secondary text-light border-0", placeholder="¿Qué estás pensando?") }}
+            </div>
+            {{ form.submit(class="btn btn-primary float-end") }}
+        </form>
+    </div>
+</div>
+</form>
+
+<hr>
+
+{% for post in posts %}
+<div class="card bg-secondary text-light mb-3">
+    <div class="card-body">
+        <h5>@{{ post.author.username|capitalize }}</h5>
+        <p>{{ post.content }}</p>
+        <small>{{ post.date_created }}</small>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
